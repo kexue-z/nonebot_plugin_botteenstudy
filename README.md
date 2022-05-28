@@ -12,16 +12,16 @@
 
 ## 各地区使用方式
 
-- [江西地区](./nonebot_plugin_botteenstudy/resource/江西地区.md“江西地区”)
-- [湖北地区](./nonebot_plugin_botteenstudy/resource/湖北地区.md“湖北地区”)
+- [江西地区](./nonebot_plugin_botteenstudy/resource/江西地区.md)
+- [湖北地区](./nonebot_plugin_botteenstudy/resource/湖北地区.md)
 
 ## 参考
 
-- [江西共青团自动提交](https://github.com/XYZliang/JiangxiYouthStudyMaker"江西共青团自动提交")
+- [江西共青团自动提交](https://github.com/XYZliang/JiangxiYouthStudyMaker)
 
-- [青春湖北自动提交](https://github.com/Samueli924/TeenStudy"青春湖北自动提交")
+- [青春湖北自动提交](https://github.com/Samueli924/TeenStudy)
 
-- [28位openid随机生成和抓包](https://hellomango.gitee.io/mangoblog/2021/09/26/other/%E9%9D%92%E5%B9%B4%E5%A4%A7%E5%AD%A6%E4%B9%A0%E6%8A%93%E5%8C%85/"抓包教程“)
+- [28位openid随机生成和抓包](https://hellomango.gitee.io/mangoblog/2021/09/26/other/%E9%9D%92%E5%B9%B4%E5%A4%A7%E5%AD%A6%E4%B9%A0%E6%8A%93%E5%8C%85/)
 
 ##  安装及更新
 
