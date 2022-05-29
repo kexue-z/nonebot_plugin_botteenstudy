@@ -1,16 +1,19 @@
-from io import BytesIO
-from PIL import Image, ImageDraw, ImageFont
 import base64
+from io import BytesIO
 from os.path import dirname
 
-fontPath = dirname(__file__) + '/resource/font/MiSans-Light.ttf'
+from PIL import Image, ImageDraw, ImageFont
+
+fontPath = dirname(__file__) + "/resource/font/MiSans-Light.ttf"
 
 
 async def pic(text):
     fontSize = 30  # 字体大小
-    lines = text.split('\n')
+    lines = text.split("\n")
     # 画布颜色
-    img = Image.new('RGB', (1080, len(lines) * (fontSize + 7)), (255, 255, 255))  # (fontSize * (len(lines) + 10)
+    img = Image.new(
+        "RGB", (1080, len(lines) * (fontSize + 7)), (255, 255, 255)
+    )  # (fontSize * (len(lines) + 10)
     dr = ImageDraw.Draw(img)
     # 字体样式
     font = ImageFont.truetype(fontPath, fontSize)

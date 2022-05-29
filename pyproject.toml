@@ -23,9 +23,11 @@ nonebot2 = ">=2.0.0-beta.2"
 beautifulsoup4 = "^4.11.1"
 Pillow = "^9.1.1"
 anti-useragent = "^1.0.7"
+requests = "^2.27.1"
 
 
 [tool.poetry.dev-dependencies]
+black = {version = "^22.3.0", allow-prereleases = true}
 
 
 [build-system]

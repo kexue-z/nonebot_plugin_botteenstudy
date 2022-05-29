@@ -1,24 +1,25 @@
 import os
+import json
 import random
 import string
+
 import requests
-import json
 from bs4 import BeautifulSoup
 
-path = os.path.dirname(__file__) + '/data'  # 数据存放目录
+path = os.path.dirname(__file__) + "/data"  # 数据存放目录
 s = requests.session()
 
 
 # 生成随机openid
 def gen_rand_str(len):
-    return ''.join(random.sample(string.ascii_letters + string.digits, len))
+    return "".join(random.sample(string.ascii_letters + string.digits, len))
 
 
 def get_code():
     """
-        调用API获取最新一期青春学习的CODE
-        :return:
-        """
+    调用API获取最新一期青春学习的CODE
+    :return:
+    """
 
     url = "https://h5.cyol.com/special/weixin/sign.json"
     headers = {
@@ -51,7 +52,9 @@ def get_user(openid, send_id):
         "Accept-Encoding": "gzip, deflate",
         "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
     }
-    url = "https://api.fjg360.cn/index.php?m=vote&c=index&a=get_members&openid=" + openid
+    url = (
+        "https://api.fjg360.cn/index.php?m=vote&c=index&a=get_members&openid=" + openid
+    )
     resp = s.get(url, headers=headers).json()
     if resp.get("code") == 1:
         return resp.get("h5_ask_member")
@@ -70,10 +73,10 @@ def get_course(code):
         "Accept-Encoding": "gzip, deflate",
         "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
     }
-    url = 'https://h5.cyol.com/special/daxuexi/' + code + '/m.html'
+    url = "https://h5.cyol.com/special/daxuexi/" + code + "/m.html"
     resp = s.get(url, headers=headers)
     soup = BeautifulSoup(resp.content.decode("utf8"), "lxml")
-    course = soup.title.string[7:]
+    course = soup.title.string[7:]  # type: ignore
     return course
 
 
@@ -91,11 +94,11 @@ def sent_user(openid, user_data, course):
         "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
     }
     url = "https://cp.fjg360.cn/index.php?m=vote&c=index&a=save_door&sessionId=&imgTextId=&ip="
-    url += "&username=" + user_data['name']
+    url += "&username=" + user_data["name"]
     url += "&phone=" + "未知"
-    url += "&city=" + user_data['danwei1']
-    url += "&danwei2=" + user_data['danwei3']
-    url += "&danwei=" + user_data['danwei2']
+    url += "&city=" + user_data["danwei1"]
+    url += "&danwei2=" + user_data["danwei3"]
+    url += "&danwei=" + user_data["danwei2"]
     url += "&openid=" + openid
     url += "&num=10"
     url += "&lesson_name=" + course
@@ -107,13 +110,13 @@ def sent_user(openid, user_data, course):
 
 
 def start(send_id):
-    with open(path + '/dxx_list.json', 'r', encoding='utf-8') as f:
+    with open(path + "/dxx_list.json", "r", encoding="utf-8") as f:
         obj = json.load(f)
     mark = False
     state_code = 0
     for item in obj:
-        if int(send_id) == int(item['qq']):
-            openid = item['openid']
+        if int(send_id) == int(item["qq"]):
+            openid = item["openid"]
             code = get_code()
             course = get_course(code)
             user_data = get_user(openid, send_id)
@@ -127,17 +130,23 @@ def start(send_id):
 
 
 async def start_use_hb(send_id):
-    with open(path + '/dxx_list.json', 'r', encoding='utf-8') as f:
+    with open(path + "/dxx_list.json", "r", encoding="utf-8") as f:
         obj = json.load(f)
     mark = False
     state_code = 0
     for item in obj:
-        if int(send_id) == int(item['qq']):
-            openid = item['openid']
+        if int(send_id) == int(item["qq"]):
+            openid = item["openid"]
             code = get_code()
             course = get_course(code)
-            user_data = {'uid': '', 'name': item['name'], 'danwei1': item['danwei1'], 'danwei2': item['danwei2'],
-                         'danwei3': item['danwei3'], 'class_name': ''}
+            user_data = {
+                "uid": "",
+                "name": item["name"],
+                "danwei1": item["danwei1"],
+                "danwei2": item["danwei2"],
+                "danwei3": item["danwei3"],
+                "class_name": "",
+            }
             state_code = sent_user(openid, user_data, course)
             mark = True
             break
