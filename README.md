@@ -9,11 +9,10 @@
     <a href="https://github.com/ZMXC01/nonebot_plugin_botteenstudy/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/ZMXC01/nonebot_plugin_botteenstudy?style=flat-square"></a>
 </div>
 
-
 ## 各地区使用方式
 
-- [江西地区](./nonebot_plugin_botteenstudy/resource/江西地区.md)
-- [湖北地区](./nonebot_plugin_botteenstudy/resource/湖北地区.md)
+- [江西地区](./docs/江西地区.md)
+- [湖北地区](./docs/湖北地区.md)
 
 ## 参考
 
@@ -21,25 +20,26 @@
 
 - [青春湖北自动提交](https://github.com/Samueli924/TeenStudy)
 
-- [28位openid随机生成和抓包](https://hellomango.gitee.io/mangoblog/2021/09/26/other/%E9%9D%92%E5%B9%B4%E5%A4%A7%E5%AD%A6%E4%B9%A0%E6%8A%93%E5%8C%85/)
+- [28 位 openid 随机生成和抓包](https://hellomango.gitee.io/mangoblog/2021/09/26/other/%E9%9D%92%E5%B9%B4%E5%A4%A7%E5%AD%A6%E4%B9%A0%E6%8A%93%E5%8C%85/)
 
-##  安装及更新
+## 安装及更新
 
 1. 使用`git clone https://github.com/ZMXC01/nonebot_plugin_botteenstudy.git`指令克隆本仓库或下载压缩包文件
 2. 使用`pip install nonebot_plugin_bottenstudy`来进行安装,使用`pip install nonebot_plugin_botteenstudy -U`进行更新
 
 ## 导入插件
+
 **使用第一种安装方式**
 
-- 将`nonebot_plugin_botteenstudy`放在nb的`plugins`目录下，运行nb机器人即可
+- 将`nonebot_plugin_botteenstudy`放在 nb 的`plugins`目录下，运行 nb 机器人即可
 
 **使用第二种安装方式**
-- 在`bot.py`中添加`nonebot.load_plugin("nonebot_plugin_botteenstudy")`或在`pyproject.toml`里的`[tool.nonebot]`中添加`plugins = ["nonebot_plugin_botteenstudy"]`
 
+- 在`bot.py`中添加`nonebot.load_plugin("nonebot_plugin_botteenstudy")`或在`pyproject.toml`里的`[tool.nonebot]`中添加`plugins = ["nonebot_plugin_botteenstudy"]`
 
 ## 机器人配置
 
-- 在nonebot的.env配置文件中设置好超管账号
+- 在 nonebot 的.env 配置文件中设置好超管账号
 
   ```py
   SUPERUSERS=[""]
@@ -56,13 +56,11 @@
   msg_pic.py#将文字转为图片文件，方便查看长文本消息
   ```
 
-  
-
 - 请确保已安装以下第三方库（插件运行失败请检查第三方库有没有装完整）
 
   ```py
-  asyncio 
-  anti_useragent 
+  asyncio
+  anti_useragent
   secrets
   requests
   string
@@ -71,8 +69,6 @@
   pymongo
   httpx
   ```
-
-  
 
 ## 功能列表
 
@@ -95,6 +91,7 @@
 2、帮助、help
 3、大学习帮助、大学习功能、dxx_help
 ```
+
 ### 大学习
 
 ```py
@@ -123,17 +120,17 @@ Ps:查组织功能对湖北用户无效！
 
 - [ ] 增加更多地区支持
 - [ ] 优化 Bot
-- [ ] 能力有限，将逐步使用异步请求替代使用requests同步请求
+- [ ] 能力有限，将逐步使用异步请求替代使用 requests 同步请求
 - [ ] ~~逐步升级成群管插件~~
-
-
 
 ## 更新日志
 
 ### 2022/05/28
 
-- 将代码上传至pypi，可使用`pip install nonebot_plugin_bottenstudy`指令安装本插件
+- 将代码上传至 pypi，可使用`pip install nonebot_plugin_bottenstudy`指令安装本插件
 - 增加已支持地区使用提示
-###  2022/05/25
+
+### 2022/05/25
+
 - 上传基础代码
 - 支持江西和湖北地区自动完成大学习（可在后台留记录）返回完成截图
